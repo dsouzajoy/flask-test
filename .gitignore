@@ -1,0 +1,6 @@
+/frontend/node-modules
+/frontend/public
+/frontend/src
+/frontend/.gitignore
+/frontend/package-lock.json
+/frontend/package.json
