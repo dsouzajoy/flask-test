@@ -1,4 +1,5 @@
 from flask import Flask
+import os
 from flask_cors import CORS
 app = Flask(__name__, static_folder='./frontend/build', static_url_path='/')
 CORS(app)
@@ -24,4 +25,6 @@ def get_test_data():
 
 if __name__ == '__main__':
     # Threaded option to enable multiple instances for multiple user access support
-    app.run(threaded=True, port=5000)
+
+    port = int(os.environ.get('PORT', 33507))
+    app.run(threaded=True, port=port)
