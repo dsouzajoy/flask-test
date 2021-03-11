@@ -1,8 +1,7 @@
+import json
 from flask import Flask
 import os
-from flask_cors import CORS
 app = Flask(__name__, static_folder='./frontend/build', static_url_path='/')
-CORS(app)
 
 
 @app.errorhandler(404)
@@ -17,10 +16,25 @@ def index():
 
 @app.route('/api/test')
 def get_test_data():
-    return {
-        "name": 'test',
-        "description": 'This is test data from server',
-    }
+    return json.dumps([{
+        "name": 'Royal Chicken Biriyani',
+    }, {
+        "name": "Nizami Chicken Biriyani",
+    }, {
+        "name": "Special Chicken Biriyani",
+    }, {
+        "name": "Special Supreme Chicken Biriyani",
+    }, {
+        "name": "Paneer Tikka"
+    }, {
+        "name": "Paneer Chilli",
+    }, {
+        "name": "Vegetable Manchurian",
+    }, {
+        "name": "Baby Corn Paneer",
+    }, {
+        "name": "Chicken Shawarma",
+    }])
 
 
 if __name__ == '__main__':
